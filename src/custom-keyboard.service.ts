@@ -7,38 +7,30 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Subject } from 'rxjs/Subject';
 
+
 @Injectable()
 
 export class CustomKeyboardService {
-    subject: Subject<any>;
-    
-      customKeyboardComponentInput:any;
-    //   constructor(public http: Http) {
-    //     alert("hii");
-        //this.customKeyboardComponentInput=this.customKeyboardComponent;
-    //   }
-      // setInputReference(inputType) { 
-      //   this. customKeyboardComponentInput = inputType;
-      //  }
-      //  response: any;
-      //  jsonURL:any;
+  subject: Subject<any>;
+
+  response: any;
+  type: any;
+  constructor(private _http: Http) {
+  }
      
       //  setInputReference(): Observable<any> {
-      //    return this.http.get(this.jsonURL)
+      //    return this._http.get(this.type)
       //    .map(response => response.json());
+      
       //  }
-    //   ngOnInit(): void {
-    //     this.emit('inputType','password')
-    //   }
-    
-      filterOn(id: string): Observable<any> {
+   
+       filterOn(id: string): Observable<any> {
         return (this.subject.filter(d => (d.id === id)));
     };
     
     emit(id: string, options?: any) {
       this.subject.next({ id: id, data: options });
     }
-
 
 
 }

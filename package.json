@@ -74,6 +74,7 @@
   },
   "dependencies": {
     "@angular/forms": "^4.4.4",
-    "@angular/http": "^4.4.4"
+    "@angular/http": "^4.4.4",
+    "build": "^0.1.4"
   }
 }

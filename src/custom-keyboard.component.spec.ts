@@ -3,7 +3,7 @@ import { By }              from '@angular/platform-browser';
 import { DebugElement }    from '@angular/core';
 
 import { CustomKeyboardComponent } from './custom-keyboard.component';
-import{CustomKeyboardService} from 'custom-keyboard.service';
+
 describe('CustomKeyboardComponent', () => {
 
   let comp:    CustomKeyboardComponent;

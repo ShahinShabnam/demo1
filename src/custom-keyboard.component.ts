@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import{CustomKeyboardService } from 'custom-keyboard.service'
+import{CustomKeyboardService } from './custom-keyboard.service'
 
 import { Subscription } from 'rxjs';
 
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   selector: 'custom-keyboard-component',
   template: `
   <div class="keyboard">
-  <input id="input" #inputTextArea [(type)]="inputType" (click)="getCaretPos(inputTextArea)"  (keyup)="getCaretPos(inputTextArea)" [ngModel]="inputstr" style="width:90%;margin-left: 17px;" />
+  <input id="input" #inputTextArea  [(type)]="inputType" (click)="getCaretPos(inputTextArea)"  (keyup)="getCaretPos(inputTextArea)" [ngModel]="inputstr" style="width:90%;margin-left: 17px;" />
   <br>
   <br>
   <div class="button-group">
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
   </div>
 </div>
 `,
- providers:[CustomKeyboardService],
+
  styleUrls: ['./custom-keyboard.css'],
  host: { '(window:keyup)': 'keyPress($event)' }
 
@@ -30,9 +30,9 @@ export class CustomKeyboardComponent implements OnInit{
   public inputstr: string = "";
   public caretPos: number = 0;
   public inputTextArea: any;
-  public inputType: string = "";
+  public inputType: any;
 
-  constructor(public customKeyboardService:CustomKeyboardService) {
+  constructor( public customKeyboardService :CustomKeyboardService ) {
     this.subscriptions = this.customKeyboardService.filterOn('inputType').subscribe(d => {
       if (d.error) {
         console.log(d.error);
@@ -41,13 +41,16 @@ export class CustomKeyboardComponent implements OnInit{
         this.inputType=d.data;
       }
     });
+    //this.getRecrods(customKeyboardService.type);
+    alert(this.inputType)
   }
-  getRecrods(Json) {
-   // this.customKeyboardService.setInputReference().subscribe(value => {
-    //   this.inputType = value;
+  // getRecrods(Json) {
+  //  this.customKeyboardService.setInputReference().subscribe(value => {
+  //    alert(value);
+  //     this.inputType = value;
       
-    //  });
-  }
+  //    });
+  // }
 
 ngOnInit() {
     this.inputstr = "";
@@ -55,7 +58,7 @@ ngOnInit() {
     this.keys = ["Esc", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "bksp", "7", "8", "9", "Caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "Enter", "4", "5", "6", "<--", "z", "x", "c", "v", "b", "n", "m", "-", "-->", "1", "2", "3", "Spacebar", "0", "Enter"];
     this.caretPos = 0;
    
-    //this.inputType= "";
+    
    
   }
 

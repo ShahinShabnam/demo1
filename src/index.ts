@@ -27,15 +27,12 @@ export * from './custom-keyboard.service';
     CustomKeyboardComponent,
     CustomKeyboardDirective,
     CustomKeyboardPipe,
-    
-  ],
- 
+]
 })
 export class CustomKeyboardModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: CustomKeyboardModule,
-     
       providers: [CustomKeyboardService]
     };
   }
