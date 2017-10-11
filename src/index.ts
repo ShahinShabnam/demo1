@@ -5,7 +5,7 @@ import { CustomKeyboardDirective } from './custom-keyboard.directive';
 import { CustomKeyboardPipe } from './custom-keyboard.pipe';
 import { CustomKeyboardService } from './custom-keyboard.service';
 import { FormsModule} from '@angular/forms';
-import { AppService } from 'providers/appService';
+
 export * from './custom-keyboard.component';
 export * from './custom-keyboard.directive';
 export * from './custom-keyboard.pipe'; 
@@ -20,12 +20,14 @@ export * from './custom-keyboard.service';
   declarations: [
     CustomKeyboardComponent,
     CustomKeyboardDirective,
-    CustomKeyboardPipe
+    CustomKeyboardPipe,
+   
   ],
   exports: [
     CustomKeyboardComponent,
     CustomKeyboardDirective,
-    CustomKeyboardPipe
+    CustomKeyboardPipe,
+    
   ],
  
 })

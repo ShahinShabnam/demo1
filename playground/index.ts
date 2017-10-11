@@ -6,18 +6,20 @@ import { NgModule } from '@angular/core';
 import { Component } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { CustomKeyboardModule }  from 'demo1';
+// import { CustomKeyboardModule, CustomKeyboardService }  from '../src/index';
 
 @Component({
   selector: 'app',
-  template: `<custom-keyboard-component></custom-keyboard-component>`
+  template: `<custom-keyboard-component></custom-keyboard-component>`,
+  
 })
 class AppComponent {}
 
 @NgModule({
   bootstrap: [ AppComponent ],
   declarations: [ AppComponent ],
-  imports: [ BrowserModule, CustomKeyboardModule ]
+  // providers:[CustomKeyboardService],
+  imports: [ BrowserModule, ]
 })
 class AppModule {}
 

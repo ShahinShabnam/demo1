@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import{CustomKeyboardService } from 'custom-keyboard.service'
-import{AppService} from 'providers/appService'
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
   </div>
 </div>
 `,
- providers:[AppService],
+ providers:[CustomKeyboardService],
  styleUrls: ['./custom-keyboard.css'],
  host: { '(window:keyup)': 'keyPress($event)' }
 
@@ -32,7 +32,7 @@ export class CustomKeyboardComponent implements OnInit{
   public inputTextArea: any;
   public inputType: string = "";
 
-  constructor(private customKeyboardService:AppService) {
+  constructor(public customKeyboardService:CustomKeyboardService) {
     this.subscriptions = this.customKeyboardService.filterOn('inputType').subscribe(d => {
       if (d.error) {
         console.log(d.error);
